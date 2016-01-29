@@ -10,7 +10,7 @@ Feature: Edit Category
     When I follow "Categories"
     Then I should be on the admin categories page
     
-  Scenario: Sucessfully Edit New Category from admin panel
+  Scenario: Sucessfully Edit New Category from admin panel cheats way
     
     Then I should see "General"
     When I follow "General"
@@ -19,6 +19,3 @@ Feature: Edit Category
     Then I should be on the admin categories page
     And I should see "JBB Category"
     And I should not see "General"
-    
-  Scenario: Unsuccesfully edit category (cancel out given no validations)
-   
