@@ -13,16 +13,22 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the home\s?page$/
+  when /^the home\s?page$/
       '/'
-    when /^the new article page$/
+  when /^the new article page$/
       '/admin/content/new'
 
   when /^the admin home page$/
       '/admin'
       
-    when /^the admin categories page$/
+  when /^the admin categories page$/
       '/admin/categories/new'
+           
+ when /^the edit link for "(.*)"$/
+      category = Category.find_by_name($1)
+      "/admin/categories/edit/#{category}"
+
+     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

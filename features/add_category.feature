@@ -13,10 +13,18 @@ Feature: Add Category
     When I follow "Categories"
     Then I should be on the admin categories page
     
-    When I fill in "name" with "JBB Category"
-    And I press "save"
-    Then I should be on the categories admin page
+    When I fill in "Name" with "JBB Category"
+    And I press "Save"
+    Then I should be on the admin categories page
     And I should see "JBB Category"
     
-  Scenario: Edit existing category
-    Given  Pending 
+  Scenario: Unsuccesfully add category (cancel out given no validations)
+    Given I am on the admin home page
+    
+    When I follow "Categories"
+    Then I should be on the admin categories page
+    
+    When I fill in "Name" with "Other Category"
+    And I follow "Cancel"
+    Then I should be on the admin categories page
+    And I should not see "Other Category"
