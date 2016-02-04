@@ -24,8 +24,8 @@ module NavigationHelpers
   when /^the admin categories page$/
       '/admin/categories/new'
            
-# when /^the edit link for "(.*)"$/
-#       "/admin/categories/edit/#{Category.find_by_name($1)}"
+ when /^the edit page for "(.*)"$/
+      "/admin/content/edit/#{Article.find_by_title($1).id}"
 
      
     # Add more mappings here.
