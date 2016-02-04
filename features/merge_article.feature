@@ -10,7 +10,7 @@ Feature: Merge Articles
     And the following articles exist:
         | id | title    | author    | user_id | body | allow_comments | published | published_at        | state     | type      |
         | 3  | Article1 | two       | 2       | body1| true           | true      | 2016-01-01 10:00:00 | published | article   |
-        | 4  | Article2 | three     | 3       | body1| true           | true      | 2016-01-01 10:00:00 | published | article   |
+        | 4  | Article2 | three     | 3       | body2| true           | true      | 2016-01-01 10:00:00 | published | article   |
     
     
 
@@ -25,37 +25,8 @@ Feature: Merge Articles
     Then I should see "Merge Articles"
     When I fill in "merge_with" with "4"
     And I press "Merge"
-    Then I should be on the admin content page
-    And I should see "Articles successfully merged!"
-    
-#  Scenario: merged article should contain content from BOTH articles merged
-#   Given the articles with ids 4 and 5 were merged
-#   And I am on the home page
-#   Then I should see "Article1"
-#   When I follow "Article1"
-#   Then I should see "body1"
-#   And I should see "body2"
-   
-#   Scenario: merged article should only have one author
-#   Given the articles with ids 4 and 5 were merged
-#   Then author should be "vani" or "vars"
-   
-#   Scenario: Comments on both of the 2 merged articles should carry over
-#     Given the articles with ids 4 and 5 were merged
-#     And I am on the home page
-#     Then I should see "Article1"
-#     When I follow "Article1"
-#     Then I should see "comment1"
-#     And I should see "comment2"
-    
-#   Scenario: Title of the new article should be title of either of the merged articles
-#     Given the articles with ids 4 and 5 were merged
-#     And I am on the home page
-#     Then I should see "Article1" or "Article2"
-    
-#   Scenario: If I am not an admin I cannot merge articles
-#     Given I am logged in as "vani" with password "1234"
-#     And I am on the Edit page of Article with id 3
-#     Then I should not see "Merge Articles"
+    Then the article "Article1" should have body "body1 body2"
+    And the comment "comment2" should belong to "Article1" 
+    And I should be on the edit page for "Article1"
 
     
