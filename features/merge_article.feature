@@ -23,8 +23,7 @@ Feature: Merge Articles
     Given I am logged into the admin panel
     And I am on the edit page for "Article1"
     Then I should see "Merge Articles"
-    And show me the page
-    When I fill in "merge_with" with 4
+    When I fill in "merge_with" with "4"
     And I press "Merge"
     Then I should be on the admin content page
     And I should see "Articles successfully merged!"
